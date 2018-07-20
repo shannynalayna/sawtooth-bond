@@ -1,0 +1,38 @@
+// Copyright 2018 Bitwise IO
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// -----------------------------------------------------------------------------
+
+syntax = "proto3";
+
+import "organization.proto";
+
+message CreateHolding {
+
+    // Whether the asset is currency or a bond
+    Organization.Holding.AssetType asset_type = 1;
+
+    // If asset_type is BOND, the asset-id will contain the bond_id
+    // For asset_type of CURRENCY, this will be the string 'USD'
+    string asset_id = 2;
+
+    // The current balance
+    uint64 amount = 3;
+}
+
+message DeleteHolding {
+
+    // If asset_type is BOND, the asset-id will contain the bond_id
+    // For asset_type of CURRENCY, this will be the string 'USD'
+    string asset_id = 1;
+}
