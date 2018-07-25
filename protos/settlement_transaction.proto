@@ -17,6 +17,6 @@ syntax = "proto3";
 
 message CreateSettlement {
 
-    // The ID of the order which is being settled
+    // The ID of the order which is being settled.
     string order_id = 1;
 }

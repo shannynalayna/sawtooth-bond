@@ -19,20 +19,20 @@ import "organization.proto";
 
 message CreateHolding {
 
-    // Whether the asset is currency or a bond
+    // Whether the asset is currency or a bond.
     Organization.Holding.AssetType asset_type = 1;
 
-    // If asset_type is BOND, the asset-id will contain the bond_id
-    // For asset_type of CURRENCY, this will be the string 'USD'
+    // If asset_type is BOND, the asset-id will contain the bond_id.
+    // For asset_type of CURRENCY, this will be the string 'USD'.
     string asset_id = 2;
 
-    // The current balance
+    // The current balance.
     uint64 amount = 3;
 }
 
 message DeleteHolding {
 
-    // If asset_type is BOND, the asset-id will contain the bond_id
-    // For asset_type of CURRENCY, this will be the string 'USD'
+    // If asset_type is BOND, the asset-id will contain the bond_id.
+    // For asset_type of CURRENCY, this will be the string 'USD'.
     string asset_id = 1;
 }

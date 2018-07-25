@@ -24,7 +24,8 @@ message Quote {
     // UUID of the quote.
     string quote_id = 1;
 
-    // Ticker symbol of the organization the quote is on bahalf of.
+    // Ticker symbol or pricing source of the 
+    // organization the quote is on behalf of.
     string organization = 2;
 
     // ID of the bond the quote is for.
@@ -52,7 +53,7 @@ message Quote {
     // associated with the quote.
     Status status = 8;
 
-    // Time that the quote is created in relation to the current clock
+    // Time that the quote is created in relation to the current clock.
     // Format: UTC Timestamp
     uint64 timestamp = 9;
 }

@@ -22,7 +22,8 @@ message Participant {
     // Username of the participant.
     string username = 2;
 
-    // Ticker symbol of the participant's organization.
+    // Ticker symbol or pricing source of the participant's 
+    // organization.
     string organization_id = 3;
 }
 
