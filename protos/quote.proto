@@ -38,11 +38,11 @@ message Quote {
     // Maximum quantity the firm is willing to sell.
     uint64 ask_qty = 5;
 
-    // Maximum price for which the firm is willing to sell the bond.
+    // Maximum price for which the firm is willing to buy the bond.
     // Format: Millionths of dollars
     uint64 bid_price = 6;
 
-    // Minimum quantity the firm is willing to sell.
+    // Maximum quantity the firm is willing to buy.
     uint64 bid_qty = 7;
 
     // Whether the quote is OPEN or CLOSED. Quotes are OPEN if they have
