@@ -1,0 +1,46 @@
+// Copyright 2018 Bitwise IO
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// -----------------------------------------------------------------------------
+
+syntax = "proto3";
+
+message BondPayload{
+    enum Action {
+        CREATE_ORGANIZATION = 0;
+        UPDATE_ORGANIZATION = 1;
+        UPDATE_ORGANIZATION_AUTHORIZATION = 2;
+
+        CREATE_PARTICIPANT = 3;
+        UPDATE_PARTICIPANT = 4;
+
+        CREATE_ORDER = 5;
+
+        CREATE_QUOTE = 6;
+
+        CREATE_SETTLEMENT = 7;
+
+        CREATE_RECEIPT = 8;
+
+        CREATE_HOLDING = 9;
+        DELETE_HOLDING = 10;
+
+        CREATE_BOND = 11;
+    }
+
+    // Type of transaction data the payload contains
+    Action action = 1;
+
+    // Payload data
+    bytes content = 2;
+}
