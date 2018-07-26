@@ -30,3 +30,16 @@ services:
         cd processor
         cargo build
       "
+
+  postgres:
+    image: postgres:alpine
+    container_name: bond-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: sawtooth
+      POSTGRES_PASSWORD: sawtooth
+      POSTGRES_DB: sawtooth-bond
+    volumes:
+      - './database/tables:/docker-entrypoint-initdb.d'
+    ports:
+      - '5432:5432'
