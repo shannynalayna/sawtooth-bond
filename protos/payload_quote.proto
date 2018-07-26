@@ -27,10 +27,10 @@ message CreateQuote {
     // The maximum quantity the firm is willing to sell.
     uint64 ask_qty = 3;
 
-    // The maximum price for which the firm is willing to sell the bond.
+    // The maximum price for which the firm is willing to buy the bond.
     // Format: Millionths of dollars
     uint64 bid_price = 4;
 
-    // The minimum quantity the firm is willing to sell.
+    // The minimum quantity the firm is willing to buy.
     uint64 bid_qty = 5;
 }
