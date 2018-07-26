@@ -35,7 +35,8 @@ message Bond {
     // Identifier of the bond (ISIN).
     string bond_id = 1;
 
-    // Ticker symbol of the organization which issued the bond.
+    // Organization ID, either ticker symbol or pricing source,
+    //  of the firm which issued the bond.
     string issuing_organization_id = 2;
 
     // List of bond ratings by agency.

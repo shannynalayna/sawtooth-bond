@@ -27,7 +27,7 @@ message Organization {
             BOND = 1;
         }
 
-        // Whether the asset is CURRENCY or a BOND
+        // Whether the asset is CURRENCY or a BOND.
         AssetType asset_type = 1;
 
         // If asset_type is BOND, the asset_id will contain the bond_id. If
@@ -77,13 +77,19 @@ message Organization {
         uint64 timestamp = 5;
     }
 
-    // Ticker symbol associated with the organization.
+    // Ticker symbol is for organizations with organization type 'TRADING FIRM'
+    // uniquely identifying the organization.
+    // Pricing source is for organizations with organization type 'PRICING SOURCE'
+    // is a four-letter code representing organizations responsible for 
+    // providing quotes to the market.
+    // Ticker symbol or pricing source provided dependent on organization type.
     string organization_id = 1;
 
     // Name of the organization.
     string name = 2;
 
     // Type of the organization.
+    // Determines the format of the organization_id.
     OrganizationType organization_type = 3;
 
     // Industry of the organization.
@@ -92,15 +98,11 @@ message Organization {
     // List of the assets that the organization owns.
     repeated Holding holdings = 5;
 
-    // Four-letter code representing the identity of the organization for
-    // the purpose of providing quotes to the market.
-    string pricing_source = 6;
-
     // List of participant public keys and their roles within the organization.
-    repeated Authorization authorizations = 7;
+    repeated Authorization authorizations = 6;
 
     // List of coupon and redemption receipts.
-    repeated Receipt receipts = 8;
+    repeated Receipt receipts = 7;
 }
 
 message OrganizationContainer {

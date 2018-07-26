@@ -41,7 +41,8 @@ message Order {
     // Whether this is a MARKET or LIMIT order.
     OrderType order_type = 3;
 
-    // Ticker symbol of the organization the order is on bahalf of.
+    // Ticker symbol or pricing source of the 
+    // organization the order is on behalf of.
     string ordering_organization_id = 4;
 
     // ISIN of the bond the order is for.
