@@ -91,3 +91,10 @@ services:
     depends_on:
       - validator
     entrypoint: settings-tp -v -C tcp://validator:4004
+
+  adminer:
+      image: adminer
+      container_name: bond-adminer
+      restart: always
+      ports:
+        - '8081:8080'
