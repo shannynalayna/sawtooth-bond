@@ -15,18 +15,26 @@
 
 syntax = "proto3";
 
-message Participant {
-    // Public key associated with the participant.
+message CreateParticipant {
+    
+    // The public key associated with the participant used to sign
+    // transactions.
     string public_key = 1;
 
     // Username of the participant.
     string username = 2;
 
-    // Ticker symbol or pricing source of the participant's 
+    // The ticker symbol or pricing source of the participant's 
     // organization.
     string organization_id = 3;
 }
 
-message ParticipantContainer {
-    repeated Participant entries = 1;
+message UpdateParticipant {
+
+    // Username of the participant.
+    string username = 1;
+
+    // The ticker symbol or pricing source of the participant's 
+    // organization.
+    string organization_id = 2;
 }

@@ -24,7 +24,8 @@ message Quote {
     // UUID of the quote.
     string quote_id = 1;
 
-    // Ticker symbol of the organization the quote is on bahalf of.
+    // Ticker symbol or pricing source of the 
+    // organization the quote is on behalf of.
     string organization = 2;
 
     // ID of the bond the quote is for.
@@ -37,11 +38,11 @@ message Quote {
     // Maximum quantity the firm is willing to sell.
     uint64 ask_qty = 5;
 
-    // Maximum price for which the firm is willing to sell the bond.
+    // Maximum price for which the firm is willing to buy the bond.
     // Format: Millionths of dollars
     uint64 bid_price = 6;
 
-    // Minimum quantity the firm is willing to sell.
+    // Maximum quantity the firm is willing to buy.
     uint64 bid_qty = 7;
 
     // Whether the quote is OPEN or CLOSED. Quotes are OPEN if they have
@@ -52,7 +53,7 @@ message Quote {
     // associated with the quote.
     Status status = 8;
 
-    // Time that the quote is created in relation to the current clock
+    // Time that the quote is created in relation to the current clock.
     // Format: UTC Timestamp
     uint64 timestamp = 9;
 }

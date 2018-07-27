@@ -15,18 +15,32 @@
 
 syntax = "proto3";
 
-message Participant {
-    // Public key associated with the participant.
-    string public_key = 1;
+message BondPayload{
+    enum Action {
+        CREATE_ORGANIZATION = 0;
+        UPDATE_ORGANIZATION = 1;
+        UPDATE_ORGANIZATION_AUTHORIZATION = 2;
 
-    // Username of the participant.
-    string username = 2;
+        CREATE_PARTICIPANT = 3;
+        UPDATE_PARTICIPANT = 4;
 
-    // Ticker symbol or pricing source of the participant's 
-    // organization.
-    string organization_id = 3;
-}
+        CREATE_ORDER = 5;
 
-message ParticipantContainer {
-    repeated Participant entries = 1;
+        CREATE_QUOTE = 6;
+
+        CREATE_SETTLEMENT = 7;
+
+        CREATE_RECEIPT = 8;
+
+        CREATE_HOLDING = 9;
+        DELETE_HOLDING = 10;
+
+        CREATE_BOND = 11;
+    }
+
+    // Type of transaction data the payload contains
+    Action action = 1;
+
+    // Payload data
+    bytes content = 2;
 }

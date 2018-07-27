@@ -24,10 +24,12 @@ message Settlement {
     // ID of the order which is being settled.
     string order_id = 1;
 
-    // Ticker symbol of the organization on whose behalf the order was entered.
+    // Ticker symbol or pricing source of the organization on 
+    // whose behalf the order was entered.
     string ordering_organization_id = 2;
 
-    // Ticker symbol of the organization that supplied the quote matched with the order.
+    // Ticker symbol or pricing source of the organization that 
+    // supplied the quote matched with the order.
     string quoting_organization_id = 3;
 
     // Buy or sell settlement from the perspective of the ordering organization.

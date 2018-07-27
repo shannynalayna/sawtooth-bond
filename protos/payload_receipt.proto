@@ -15,18 +15,22 @@
 
 syntax = "proto3";
 
-message Participant {
-    // Public key associated with the participant.
-    string public_key = 1;
+import "organization.proto";
 
-    // Username of the participant.
-    string username = 2;
+message CreateReceipt {
 
-    // Ticker symbol or pricing source of the participant's 
-    // organization.
-    string organization_id = 3;
-}
+    // Whether it was a coupon or redemption payment.
+    Organization.Receipt.PaymentType payment_type = 1;
 
-message ParticipantContainer {
-    repeated Participant entries = 1;
+    // The ID of the bond for which this payment occurred.
+    string bond_id = 2;
+
+    // The date that the coupon became due.
+    // Required if payment-type is COUPON.
+    // Format: UTC Timestamp
+    uint64 coupon_date = 3;
+
+    // Amount received.
+    // Format: Millionths of dollars
+    uint64 amount = 4;
 }

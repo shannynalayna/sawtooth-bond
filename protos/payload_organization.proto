@@ -1,0 +1,71 @@
+// Copyright 2018 Bitwise IO
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// -----------------------------------------------------------------------------
+
+syntax = "proto3";
+
+import "organization.proto";
+
+message CreateOrganization {
+
+    // The name of the organization
+    string name = 1;
+
+    // Type of the organization.
+    Organization.OrganizationType organization_type = 2;
+
+    // The industry of the organization.
+    string industry = 3;
+
+    // Ticker symbol is for organizations with organization type 'TRADING FIRM'
+    // uniquely identifying the organization.
+    // Pricing source is for organizations with organization type 'PRICING SOURCE'
+    // is a four-letter code representing organizations responsible for
+    // providing quotes to the market.
+    // Ticker symbol or pricing source provided dependent on organization type.
+    string organization_id = 4;
+
+    // List of participant public keys and their roles
+    // within the organization.
+    repeated Organization.Authorization authorizations = 5;
+}
+
+message UpdateOrganization {
+
+    // The name of the organization.
+    string name = 1;
+
+    // The industry of the organization.
+    string industry = 4;
+}
+
+message UpdateOrganizationAuthorization {
+
+    enum AuthorizationAction {
+        ADD = 0;
+        REMOVE = 1;
+    }
+
+    // If set to ADD, then this is a request to add an entry to the list.
+    // If set to REMOVE, this is a request to remove an entry.
+    AuthorizationAction authorization_action = 1;
+
+    // Public key of the participant whose authorization is being altered.
+    string public_key = 2;
+
+    // Role to update the specified participant entry.
+    // Roles grant permissions for a participant to act on behalf of the 
+    // Organization in some capacity.
+    Organization.Authorization.Role role = 3;
+}

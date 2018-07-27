@@ -15,18 +15,8 @@
 
 syntax = "proto3";
 
-message Participant {
-    // Public key associated with the participant.
-    string public_key = 1;
+message CreateSettlement {
 
-    // Username of the participant.
-    string username = 2;
-
-    // Ticker symbol or pricing source of the participant's 
-    // organization.
-    string organization_id = 3;
-}
-
-message ParticipantContainer {
-    repeated Participant entries = 1;
+    // The ID of the order which is being settled.
+    string order_id = 1;
 }
