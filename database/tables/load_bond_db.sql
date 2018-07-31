@@ -56,7 +56,8 @@ CREATE TABLE IF NOT EXISTS authorizations (
   organization_id           varchar,
   role                      Role,
   start_block_num           bigint,
-  end_block_num             bigint
+  end_block_num             bigint,
+  address                   varchar
 );
 
 CREATE TABLE IF NOT EXISTS receipts (
@@ -78,7 +79,8 @@ CREATE TABLE IF NOT EXISTS holdings (
   asset_type                AssetType,
   amount                    bigint,
   start_block_num           bigint,
-  end_block_num             bigint
+  end_block_num             bigint,
+  address                   varchar
 );
 
 CREATE TABLE IF NOT EXISTS participants (
