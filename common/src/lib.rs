@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+extern crate crypto;
 extern crate protobuf;
 
 // exported modules
+pub mod addressing;
 pub mod proto;
