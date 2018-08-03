@@ -19,6 +19,7 @@ authors = ["Bitwise IO"]
 
 [dependencies]
 protobuf = "2.0"
+rust-crypto = "0.2"
 
 [build-dependencies]
 protoc-rust = "2.0"
