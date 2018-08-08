@@ -28,7 +28,8 @@ services:
     command: |
       bash -c "
         cd processor
-        cargo build
+        cargo build &&
+        bond-processor -v -C tcp://validator:4004
       "
 
   bond-rest-api:
