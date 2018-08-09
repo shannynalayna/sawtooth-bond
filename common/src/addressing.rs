@@ -33,50 +33,52 @@ pub fn hash(object: &str, num: usize) -> String {
     sha.result_str()[..num].to_string()
 }
 
-pub fn make_organization_address(organization_id: &str) -> String {
+pub fn get_bond_namespace() -> String {
     hash(&FAMILY_NAMESPACE, PREFIX_SIZE)
-        + &hash(&ORGANIZATION, PREFIX_SIZE)
-        + &hash(organization_id, 58)
+}
+
+pub fn make_organization_address(organization_id: &str) -> String {
+    get_bond_namespace() + &hash(&ORGANIZATION, PREFIX_SIZE) + &hash(organization_id, 58)
 }
 
 pub fn make_participant_address(public_key: &str) -> String {
-    hash(&FAMILY_NAMESPACE, PREFIX_SIZE) + &hash(&PARTICIPANT, PREFIX_SIZE) + &hash(public_key, 58)
+    get_bond_namespace() + &hash(&PARTICIPANT, PREFIX_SIZE) + &hash(public_key, 58)
 }
 
 pub fn make_bond_address(bond_id: &str) -> String {
-    hash(&FAMILY_NAMESPACE, PREFIX_SIZE) + &hash(&BOND, PREFIX_SIZE) + &hash(bond_id, 58)
+    get_bond_namespace() + &hash(&BOND, PREFIX_SIZE) + &hash(bond_id, 58)
 }
 
 pub fn make_holding_address(organization_id: &str, asset_id: &str) -> String {
-    hash(&FAMILY_NAMESPACE, PREFIX_SIZE)
+    get_bond_namespace()
         + &hash(&HOLDING, PREFIX_SIZE)
         + &hash(organization_id, 22)
         + &hash(asset_id, 36)
 }
 
 pub fn make_settlement_address(organization_id: &str, order_id: &str) -> String {
-    hash(&FAMILY_NAMESPACE, PREFIX_SIZE)
+    get_bond_namespace()
         + &hash(&SETTLEMENT, PREFIX_SIZE)
         + &hash(organization_id, 22)
         + &hash(order_id, 36)
 }
 
 pub fn make_receipt_address(organization_id: &str, bond_id: &str) -> String {
-    hash(&FAMILY_NAMESPACE, PREFIX_SIZE)
+    get_bond_namespace()
         + &hash(&RECEIPT, PREFIX_SIZE)
         + &hash(organization_id, 22)
         + &hash(bond_id, 36)
 }
 
 pub fn make_quote_address(organization_id: &str, bond_id: &str) -> String {
-    hash(&FAMILY_NAMESPACE, PREFIX_SIZE)
+    get_bond_namespace()
         + &hash(&QUOTE, PREFIX_SIZE)
         + &hash(organization_id, 22)
         + &hash(bond_id, 36)
 }
 
 pub fn make_order_address(organization_id: &str, bond_id: &str) -> String {
-    hash(&FAMILY_NAMESPACE, PREFIX_SIZE)
+    get_bond_namespace()
         + &hash(&ORDER, PREFIX_SIZE)
         + &hash(organization_id, 22)
         + &hash(bond_id, 36)
