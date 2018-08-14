@@ -15,22 +15,35 @@
 
 syntax = "proto3";
 
-import "receipt.proto";
+message Receipt {
+    enum PaymentType {
+        COUPON = 0;
+        REDEMPTION = 1;
+    }
 
-message CreateReceipt {
+    // Organization ID, either ticker symbol or pricing source,
+    //  of the organization to which the payment was paid.
+    string organization_id = 1;
 
-    // Whether it was a coupon or redemption payment.
-    Receipt.PaymentType payment_type = 1;
-
-    // The ID of the bond for which this payment occurred.
+    // ID of the bond for which this payment occurred.
     string bond_id = 2;
 
-    // The date that the coupon became due.
-    // Required if payment-type is COUPON.
+    // Whether it was a coupon or redemption payment.
+    PaymentType payment_type = 3;
+
+    // Date the coupon became due. Required if payment_type is COUPON.
     // Format: UTC Timestamp
-    uint64 coupon_date = 3;
+    uint64 coupon_date = 4;
 
     // Amount received.
     // Format: Millionths of dollars
-    uint64 amount = 4;
+    uint64 amount = 5;
+
+    // Time that the receipt is created in relation to the current clock.
+    // Format: UTC Timestamp
+    uint64 timestamp = 6;
+}
+
+message ReceiptContainer {
+    repeated Receipt entries = 1;
 }

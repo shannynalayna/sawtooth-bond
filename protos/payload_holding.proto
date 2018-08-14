@@ -15,12 +15,12 @@
 
 syntax = "proto3";
 
-import "organization.proto";
+import "holding.proto";
 
 message CreateHolding {
 
     // Whether the asset is currency or a bond.
-    Organization.Holding.AssetType asset_type = 1;
+    Holding.AssetType asset_type = 1;
 
     // If asset_type is BOND, the asset-id will contain the bond_id.
     // For asset_type of CURRENCY, this will be the string 'USD'.
