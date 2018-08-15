@@ -21,24 +21,6 @@ message Organization {
         PRICING_SOURCE = 1;
     }
 
-    message Holding {
-        enum AssetType {
-            CURRENCY = 0;
-            BOND = 1;
-        }
-
-        // Whether the asset is CURRENCY or a BOND.
-        AssetType asset_type = 1;
-
-        // If asset_type is BOND, the asset_id will contain the bond_id. If
-        // asset_type is CURRENCY, this will be the string ‘USD’.
-        string asset_id = 2;
-
-        // The current balance of the holding.
-        // Format: Millionths of dollars, or quantity of bonds
-        uint64 amount = 3;
-    }
-
     message Authorization {
         enum Role {
             MARKETMAKER = 0;
@@ -52,35 +34,10 @@ message Organization {
         Role role = 2;
     }
 
-    message Receipt {
-        enum PaymentType {
-            COUPON = 0;
-            REDEMPTION = 1;
-        }
-
-        // ID of the bond for which this payment occurred.
-        string bond_id = 1;
-
-        // Whether it was a coupon or redemption payment.
-        PaymentType payment_type = 2;
-
-        // Date the coupon became due. Required if payment_type is COUPON.
-        // Format: UTC Timestamp
-        uint64 coupon_date = 3;
-
-        // Amount received.
-        // Format: Millionths of dollars
-        uint64 amount = 4;
-
-        // Time that the receipt is created in relation to the current clock.
-        // Format: UTC Timestamp
-        uint64 timestamp = 5;
-    }
-
     // Ticker symbol is for organizations with organization type 'TRADING FIRM'
     // uniquely identifying the organization.
     // Pricing source is for organizations with organization type 'PRICING SOURCE'
-    // is a four-letter code representing organizations responsible for 
+    // is a four-letter code representing organizations responsible for
     // providing quotes to the market.
     // Ticker symbol or pricing source provided dependent on organization type.
     string organization_id = 1;
@@ -95,14 +52,8 @@ message Organization {
     // Industry of the organization.
     string industry = 4;
 
-    // List of the assets that the organization owns.
-    repeated Holding holdings = 5;
-
     // List of participant public keys and their roles within the organization.
     repeated Authorization authorizations = 6;
-
-    // List of coupon and redemption receipts.
-    repeated Receipt receipts = 7;
 }
 
 message OrganizationContainer {

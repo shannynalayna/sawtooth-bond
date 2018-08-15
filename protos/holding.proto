@@ -15,22 +15,28 @@
 
 syntax = "proto3";
 
-import "receipt.proto";
+message Holding {
+    enum AssetType {
+        CURRENCY = 0;
+        BOND = 1;
+    }
 
-message CreateReceipt {
+    // Organization ID, either ticker symbol or pricing source,
+    // of organization who owns the asset.
+    string organization_id = 1;
 
-    // Whether it was a coupon or redemption payment.
-    Receipt.PaymentType payment_type = 1;
+    // Whether the asset is CURRENCY or a BOND.
+    AssetType asset_type = 2;
 
-    // The ID of the bond for which this payment occurred.
-    string bond_id = 2;
+    // If asset_type is BOND, the asset_id will contain the bond_id. If
+    // asset_type is CURRENCY, this will be the string ‘USD’.
+    string asset_id = 3;
 
-    // The date that the coupon became due.
-    // Required if payment-type is COUPON.
-    // Format: UTC Timestamp
-    uint64 coupon_date = 3;
-
-    // Amount received.
-    // Format: Millionths of dollars
+    // The current balance of the holding.
+    // Format: Millionths of dollars, or quantity of bonds
     uint64 amount = 4;
+}
+
+message HoldingContainer {
+    repeated Holding entries = 1;
 }
