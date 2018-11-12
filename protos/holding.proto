@@ -17,8 +17,9 @@ syntax = "proto3";
 
 message Holding {
     enum AssetType {
-        CURRENCY = 0;
-        BOND = 1;
+        UNSET = 0;
+        CURRENCY = 1;
+        BOND = 2;
     }
 
     // Organization ID, either ticker symbol or pricing source,

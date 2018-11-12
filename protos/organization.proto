@@ -17,14 +17,16 @@ syntax = "proto3";
 
 message Organization {
     enum OrganizationType {
-        TRADING_FIRM = 0;
-        PRICING_SOURCE = 1;
+        UNSET = 0;
+        TRADING_FIRM = 1;
+        PRICING_SOURCE = 2;
     }
 
     message Authorization {
         enum Role {
-            MARKETMAKER = 0;
-            TRADER = 1;
+            UNSET = 0;
+            MARKETMAKER = 1;
+            TRADER = 2;
         }
 
         // Public key of a participant.

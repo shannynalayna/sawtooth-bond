@@ -17,19 +17,21 @@ syntax = "proto3";
 
 message Bond {
     enum CouponType {
-        FIXED = 0;
-        FLOATING = 1;
+        UNSET = 0;
+        FIXED = 1;
+        FLOATING = 2;
     }
 
     enum CouponFrequency {
-       QUARTERLY = 0;
-       MONTHLY = 1;
-       DAILY = 2;
+        UNSET = 0;
+        QUARTERLY = 1;
+        MONTHLY = 2;
+        DAILY = 3;
     }
 
     message CorporateDebtRating {
-       string agency = 1;
-       string rating = 2;
+        string agency = 1;
+        string rating = 2;
     }
 
     // Identifier of the bond (ISIN).

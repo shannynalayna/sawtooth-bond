@@ -17,8 +17,9 @@ syntax = "proto3";
 
 message Quote {
     enum Status {
-        OPEN = 0;
-        CLOSED = 1;
+        UNSET = 0;
+        OPEN = 1;
+        CLOSED = 2;
     }
 
     // UUID of the quote.

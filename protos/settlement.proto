@@ -17,18 +17,19 @@ syntax = "proto3";
 
 message Settlement {
     enum Action {
-        BUY = 0;
-        SELL = 1;
+        UNSET = 0;
+        BUY = 1;
+        SELL = 2;
     }
 
     // ID of the order which is being settled.
     string order_id = 1;
 
-    // Ticker symbol or pricing source of the organization on 
+    // Ticker symbol or pricing source of the organization on
     // whose behalf the order was entered.
     string ordering_organization_id = 2;
 
-    // Ticker symbol or pricing source of the organization that 
+    // Ticker symbol or pricing source of the organization that
     // supplied the quote matched with the order.
     string quoting_organization_id = 3;
 

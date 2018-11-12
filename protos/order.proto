@@ -17,19 +17,22 @@ syntax = "proto3";
 
 message Order {
     enum Action {
-        BUY = 0;
-        SELL = 1;
+        UNSET = 0;
+        BUY = 1;
+        SELL = 2;
     }
 
     enum OrderType {
-        MARKET = 0;
-        LIMIT = 1;
+        UNSET = 0;
+        MARKET = 1;
+        LIMIT = 2;
     }
 
     enum Status {
-        OPEN = 0;
-        MATCHED = 1;
-        SETTLED = 2;
+        UNSET = 0;
+        OPEN = 1;
+        MATCHED = 2;
+        SETTLED = 3;
     }
 
     // UUID of the order.
@@ -41,7 +44,7 @@ message Order {
     // Whether this is a MARKET or LIMIT order.
     OrderType order_type = 3;
 
-    // Ticker symbol or pricing source of the 
+    // Ticker symbol or pricing source of the
     // organization the order is on behalf of.
     string ordering_organization_id = 4;
 

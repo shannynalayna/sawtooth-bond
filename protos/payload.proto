@@ -17,25 +17,27 @@ syntax = "proto3";
 
 message BondPayload{
     enum Action {
-        CREATE_ORGANIZATION = 0;
-        UPDATE_ORGANIZATION = 1;
-        UPDATE_ORGANIZATION_AUTHORIZATION = 2;
+        UNSET = 0;
 
-        CREATE_PARTICIPANT = 3;
-        UPDATE_PARTICIPANT = 4;
+        CREATE_ORGANIZATION = 1;
+        UPDATE_ORGANIZATION = 2;
+        UPDATE_ORGANIZATION_AUTHORIZATION = 3;
 
-        CREATE_ORDER = 5;
+        CREATE_PARTICIPANT = 4;
+        UPDATE_PARTICIPANT = 5;
 
-        CREATE_QUOTE = 6;
+        CREATE_ORDER = 6;
 
-        CREATE_SETTLEMENT = 7;
+        CREATE_QUOTE = 7;
 
-        CREATE_RECEIPT = 8;
+        CREATE_SETTLEMENT = 8;
 
-        CREATE_HOLDING = 9;
-        DELETE_HOLDING = 10;
+        CREATE_RECEIPT = 9;
 
-        CREATE_BOND = 11;
+        CREATE_HOLDING = 10;
+        DELETE_HOLDING = 11;
+
+        CREATE_BOND = 12;
     }
 
     // Type of transaction data the payload contains

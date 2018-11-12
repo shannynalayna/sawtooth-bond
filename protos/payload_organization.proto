@@ -53,8 +53,9 @@ message UpdateOrganization {
 message UpdateOrganizationAuthorization {
 
     enum AuthorizationAction {
-        ADD = 0;
-        REMOVE = 1;
+        UNSET = 0;
+        ADD = 1;
+        REMOVE = 2;
     }
 
     // If set to ADD, then this is a request to add an entry to the list.
@@ -65,7 +66,7 @@ message UpdateOrganizationAuthorization {
     string public_key = 2;
 
     // Role to update the specified participant entry.
-    // Roles grant permissions for a participant to act on behalf of the 
+    // Roles grant permissions for a participant to act on behalf of the
     // Organization in some capacity.
     Organization.Authorization.Role role = 3;
 }

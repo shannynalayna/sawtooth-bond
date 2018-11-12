@@ -17,8 +17,9 @@ syntax = "proto3";
 
 message Receipt {
     enum PaymentType {
-        COUPON = 0;
-        REDEMPTION = 1;
+        UNSET = 0;
+        COUPON = 1;
+        REDEMPTION = 2;
     }
 
     // Organization ID, either ticker symbol or pricing source,

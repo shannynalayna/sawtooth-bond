@@ -22,7 +22,7 @@ message CreateOrder {
     // Determines a buy or sell order.
     Order.Action action = 1;
 
-    // Determines a limit or market order. 
+    // Determines a limit or market order.
     Order.OrderType order_type = 2;
 
     // ID of the bond the order is for
