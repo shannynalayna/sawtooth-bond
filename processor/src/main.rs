@@ -33,6 +33,7 @@ use std::process;
 
 mod handler;
 mod payload;
+mod state;
 
 fn main() {
     let matches = clap_app!(bond =>
